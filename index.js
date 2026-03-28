@@ -3,11 +3,12 @@ let {UserModel, TodoModel} = require("./db")
 const mongoose = require("mongoose")
 const jwt = require("jsonwebtoken")
 const JWT_SECRET = "dfghjk"
+require("dotenv").config()
 
 const app = express()
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://vikrantpareek2005:kM6jaBqiqPi5lgVm@cluster0.k5rpgdc.mongodb.net/todo-app")
+mongoose.connect(process.env.MONGO_URL)
 
 app.post("/signup", async function(req, res){
     let {username, password, email} = req.body;
