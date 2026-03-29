@@ -5,7 +5,7 @@ let ObjectId = Schema.Types.ObjectId;
 let UserSchema = new Schema({
   username: String,
   password: String,
-  email: String,
+  email: {type: String, unique: true},
 });
 
 let TodoSchema = new Schema({
